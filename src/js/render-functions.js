@@ -44,7 +44,7 @@ function setupImg(img, data) {
 }
 
 function createFields(data) {
-  return ['likes', 'views', 'comments', 'downloads'].map(e => {
+  return ['likes', 'views', 'comments', 'downloads'].map(el => {
     const field = document.createElement('div');
     const label = document.createElement('span');
     const value = document.createElement('span');
@@ -53,8 +53,8 @@ function createFields(data) {
     label.classList.add('label');
     value.classList.add('value');
 
-    label.textContent = e;
-    value.textContent = data[e];
+    label.textContent = el;
+    value.textContent = data[el];
 
     field.append(label, value);
 
