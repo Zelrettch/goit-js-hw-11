@@ -34,7 +34,7 @@ function loadGallery(condition) {
       handleImages(d);
     })
     .catch(e => {
-      console.log(e);
+      displayAlert(e.message);
     })
     .finally(() => {
       toggleLoader();
@@ -43,9 +43,10 @@ function loadGallery(condition) {
 
 function handleSubmit(evt) {
   evt.preventDefault();
-  const condition = form.elements.input.value;
-  loadGallery(condition);
+  const condition = form.elements.input.value.trim();
+  if (condition.length) {
+    loadGallery(condition);
+  }
 }
 
 form.addEventListener('submit', handleSubmit);
-loadGallery('');
